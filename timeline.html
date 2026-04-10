@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的故事 - 时间轴 💕</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-btn">
+        <span>←</span> 返回主页
+    </a>
+
+    <!-- 时间轴页面 -->
+    <main class="timeline-page">
+        <header class="timeline-header">
+            <h1>我们的时间轴</h1>
+            <p>记录每一个珍贵的瞬间</p>
+        </header>
+
+        <div class="timeline">
+            <!-- 时间节点 1 -->
+            <article class="timeline-item" data-modal="modal1">
+                <div class="timeline-card">
+                    <img src="https://picsum.photos/400/300?random=1" alt="预览图" class="preview-image">
+                    <div class="timeline-date">2023年5月20日</div>
+                    <h3>💫 第一次相遇</h3>
+                    <p>那是个阳光明媚的下午，第一次见到你的那一刻...</p>
+                </div>
+            </article>
+
+            <!-- 时间节点 2 -->
+            <article class="timeline-item" data-modal="modal2">
+                <div class="timeline-card">
+                    <img src="https://picsum.photos/400/300?random=2" alt="预览图" class="preview-image">
+                    <div class="timeline-date">2023年8月15日</div>
+                    <h3>🌙 第一次约会</h3>
+                    <p>那天的晚餐，月光很美，你笑起来更好看...</p>
+                </div>
+            </article>
+
+            <!-- 时间节点 3 -->
+            <article class="timeline-item" data-modal="modal3">
+                <div class="timeline-card">
+                    <img src="https://picsum.photos/400/300?random=3" alt="预览图" class="preview-image">
+                    <div class="timeline-date">2024年2月14日</div>
+                    <h3>💝 第一个情人节</h3>
+                    <p>收到的第一束玫瑰花，到现在还珍藏着...</p>
+                </div>
+            </article>
+
+            <!-- 时间节点 4 -->
+            <article class="timeline-item" data-modal="modal4">
+                <div class="timeline-card">
+                    <img src="https://picsum.photos/400/300?random=4" alt="预览图" class="preview-image">
+                    <div class="timeline-date">2024年5月20日</div>
+                    <h3>💑 一周年纪念</h3>
+                    <p>一起走过了365天，感谢有你的每一天...</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- 模态框 -->
+    <div class="modal-overlay" id="modal1">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <img src="https://picsum.photos/700/400?random=1" alt="详情图" class="modal-image">
+            <div class="modal-date">2023年5月20日</div>
+            <h2 class="modal-title">💫 第一次相遇</h2>
+            <p class="modal-text">
+                那是个阳光明媚的下午。第一次见到你的那一刻，时间仿佛静止了。
+                你的笑容像春风一样温暖，我的心跳漏了一拍。<br><br>
+                从那一刻起，我就知道，你是我生命中很重要的人。
+                感谢命运的安排，让我们相遇。
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal2">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <img src="https://picsum.photos/700/400?random=2" alt="详情图" class="modal-image">
+            <div class="modal-date">2023年8月15日</div>
+            <h2 class="modal-title">🌙 第一次约会</h2>
+            <p class="modal-text">
+                那天的晚餐，我们聊了很多很多。从童年趣事到未来梦想，
+                仿佛有说不完的话。月色很美，你笑起来更好看。<br><br>
+                送你回家的时候，我在楼下站了很久，
+                看着你房间的灯亮起来，心里暖暖的。
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal3">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <img src="https://picsum.photos/700/400?random=3" alt="详情图" class="modal-image">
+            <div class="modal-date">2024年2月14日</div>
+            <h2 class="modal-title">💝 第一个情人节</h2>
+            <p class="modal-text">
+                收到的第一束玫瑰花，粉色的，很漂亮。
+                你说这是你第一次送花给别人，有些紧张。<br><br>
+                其实我想说，能成为你送花的人，我很幸运。
+                每一片花瓣我都舍不得扔，制成了干花收藏着。
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal4">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <img src="https://picsum.photos/700/400?random=4" alt="详情图" class="modal-image">
+            <div class="modal-date">2024年5月20日</div>
+            <h2 class="modal-title">💑 一周年纪念</h2>
+            <p class="modal-text">
+                一起走过了365天，说长不长，说短不短。<br><br>
+                感谢这365天里，每一个有你的日子。
+                我们一起笑过、哭过、吵过、和好过，
+                但从未后悔过选择彼此。<br><br>
+                未来的每一天，我都想和你一起走下去。
+            </p>
+        </div>
+    </div>
+
+    <!-- 音乐控制按钮（可选） -->
+    <button class="music-control" id="musicBtn">🎵</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 初始化粒子
+        initParticles();
+
+        // 初始化时间轴动画
+        initTimeline();
+
+        // 初始化模态框
+        initModals();
+
+        // 初始化音乐控制（可选）
+        // initMusic();
+    </script>
+</body>
+</html>
