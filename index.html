@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-"// 我想要添加一个纪念日祝福弹窗功能" 
-
     <title>我们的故事 💕</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
@@ -13,14 +11,25 @@
     <!-- 粒子背景 -->
     <div class="particles" id="particles"></div>
 
+    <!-- 动画图像 -->
+    <div class="floating-animations">
+        <div class="anim-img anim-left" id="anim1">
+            <img src="bubu.jpg" alt="动画1">
+            <audio id="sound1" src="bubu.mp3"></audio>
+        </div>
+        <div class="anim-img anim-right" id="anim2">
+            <img src="yier.jpg" alt="动画2">
+            <audio id="sound2" src="yier.mp3"></audio>
+        </div>
+    </div>
     <!-- 主页面容器 -->
     <main class="home">
         <div class="home-content">
             <!-- 标题 -->
             <h1 class="title">
-                <span class="title-name">🌸 你的名字</span>
+                <span class="title-name">你的名字</span>
                 <span class="title-heart">&</span>
-                <span class="title-name">你的名字 🌸</span>
+                <span class="title-name">你的名字</span>
             </h1>
 
             <!-- 纪念日倒计时 -->
@@ -44,15 +53,22 @@
             </div>
 
             <!-- 纪念日文字 -->
-            <p class="since-text">相识于 <span class="highlight">2023年5月20日</span></p>
+            <p class="since-text">相识于 <span class="highlight">2022年12月3日</span></p>
 
             <!-- 入口按钮 -->
             <a href="timeline.html" class="entry-btn">
-                <span>进入我们的故事</span>
+                <span>我们的故事</span>
                 <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
+
+            <!-- 导航入口 -->
+            <nav class="home-nav">
+                <a href="map.html" class="nav-btn">🗺️ 旅行地图</a>
+                <a href="lottery.html" class="nav-btn">🎰 抽奖</a>
+                <a href="guestbook.html" class="nav-btn">💌 留言板</a>
+            </nav>
         </div>
     </main>
 
@@ -60,13 +76,24 @@
     <script src="js/main.js"></script>
     <script>
         // 设置你们的纪念日（修改这个日期）
-        const anniversaryDate = new Date('2023-05-20');
+        const anniversaryDate = new Date('2022-12-03');
 
         // 初始化倒计时
         initCountdown(anniversaryDate);
 
         // 初始化粒子
         initParticles();
+
+        // 动画图像点击音效
+        document.querySelectorAll('.anim-img').forEach(img => {
+            img.addEventListener('click', () => {
+                const audio = img.querySelector('audio');
+                if (audio) {
+                    audio.currentTime = 0;
+                    audio.play().catch(() => {});
+                }
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:cdn.jsdelivr.net)",
+      "WebFetch(domain:datav.aliyun.com)",
+      "Bash(D:/ProgramData/Anaconda3/envs/py311/python.exe \"C:/Users/legion/.claude/skills/skills-majiayu000.0-ui-ux-pro-max-master-c437c656616688250303e603f60226ebc70b989b/scripts/search.py\" \"romantic couple love romance\" --design-system -p \"Love Story Website\")"
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖 - 我们的故事</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 动画图像 -->
+    <div class="floating-animations">
+        <div class="anim-img anim-left" id="anim1">
+            <img src="bubu.jpg" alt="动画1">
+            <audio id="sound1" src="bubu.mp3"></audio>
+        </div>
+        <div class="anim-img anim-right" id="anim2">
+            <img src="yier.jpg" alt="动画2">
+            <audio id="sound2" src="yier.mp3"></audio>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-btn">
+        <span>←</span> 返回主页
+    </a>
+
+    <!-- 抽奖页面 -->
+    <main class="lottery-page">
+        <header class="lottery-header">
+            <h1>🎰 抽奖转盘</h1>
+            <p>转动转盘，看看今天会收获什么惊喜！</p>
+            <div class="chance-counter">
+                剩余抽奖次数：<span id="chanceCount">5</span> 次
+            </div>
+        </header>
+
+        <div class="lottery-container">
+            <!-- 指针（固定不动） -->
+            <div class="wheel-pointer"></div>
+
+            <!-- 外环装饰（固定不动） -->
+            <div class="wheel-outer">
+                <!-- 内环转盘（真正旋转） -->
+                <div class="wheel-inner" id="lotteryWheel">
+                    <div class="wheel-segment" data-prize="亲一个💋">亲一个💋</div>
+                    <div class="wheel-segment" data-prize="抱一个🤗">抱一个🤗</div>
+                    <div class="wheel-segment" data-prize="家务券🧹">家务券🧹</div>
+                    <div class="wheel-segment" data-prize="请吃晚餐🍽️">请吃晚餐🍽️</div>
+                    <div class="wheel-segment" data-prize="V我50💰">V我50💰</div>
+                    <div class="wheel-segment" data-prize="再来一次🔄">再来一次🔄</div>
+                    <div class="wheel-segment" data-prize="奶茶券🧋">奶茶券🧋</div>
+                    <div class="wheel-segment" data-prize="甜品券🍰">甜品券🍰</div>
+                    <div class="wheel-center"></div>
+                </div>
+            </div>
+
+            <!-- 抽奖按钮 -->
+            <button class="lottery-btn" id="lotteryBtn">
+                <span>开始抽奖</span>
+            </button>
+        </div>
+
+        <!-- 奖品列表（可自定义） -->
+        <div class="prize-config">
+            <h3>🎁 奖品设置（点击编辑）</h3>
+            <div class="prize-list">
+                <div class="prize-item" contenteditable="true">💋 亲一个</div>
+                <div class="prize-item" contenteditable="true">🤗 抱一个</div>
+                <div class="prize-item" contenteditable="true">🧹 家务券</div>
+                <div class="prize-item" contenteditable="true">🍽️ 请吃晚餐</div>
+                <div class="prize-item" contenteditable="true">💰 V我50</div>
+                <div class="prize-item" contenteditable="true">🔄 再来一次</div>
+                <div class="prize-item" contenteditable="true">🧋 奶茶券</div>
+                <div class="prize-item" contenteditable="true">🍰 甜品券</div>
+            </div>
+        </div>
+
+        <!-- 历史记录 -->
+        <div class="lottery-history">
+            <h3>📝 抽奖记录</h3>
+            <ul id="historyList">
+                <li class="history-empty">还没有抽奖记录</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- 中奖提示 -->
+    <div class="modal-overlay" id="prizeModal">
+        <div class="modal-content prize-result">
+            <div class="prize-emoji" id="prizeEmoji">🎉</div>
+            <h2 class="prize-title">恭喜你抽到</h2>
+            <div class="prize-name" id="prizeName"></div>
+            <button class="modal-close prize-close">确定</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        initParticles();
+        initLottery();
+
+        // 动画图像点击音效
+        document.querySelectorAll('.anim-img').forEach(img => {
+            img.addEventListener('click', () => {
+                const audio = img.querySelector('audio');
+                if (audio) {
+                    audio.currentTime = 0;
+                    audio.play().catch(() => {});
+                }
+            });
+        });
+    </script>
+</body>
+</html>

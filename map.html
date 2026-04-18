@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行地图 - 我们的故事</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 动画图像 -->
+    <div class="floating-animations">
+        <div class="anim-img anim-left" id="anim1">
+            <img src="bubu.jpg" alt="动画1">
+            <audio id="sound1" src="bubu.mp3"></audio>
+        </div>
+        <div class="anim-img anim-right" id="anim2">
+            <img src="yier.jpg" alt="动画2">
+            <audio id="sound2" src="yier.mp3"></audio>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-btn">
+        <span>←</span> 返回主页
+    </a>
+
+    <!-- 地图页面 -->
+    <main class="map-page">
+        <header class="map-header">
+            <h1>🗺️ 我们的旅行地图</h1>
+            <p>点击地图上的省份，回忆那段旅程</p>
+        </header>
+
+        <div class="map-container">
+            <!-- ECharts 中国地图 -->
+            <div id="chinaMap" class="echarts-map">
+                <div class="back-to-china" id="backToChina" onclick="loadChinaMap()">
+                    ← 返回中国地图
+                </div>
+            </div>
+
+            <!-- 城市列表 -->
+            <div class="city-list">
+                <h3>我们去过的城市</h3>
+                <div class="city-tags">
+                    <span class="city-tag" data-city="四川">🏔️ 四川</span>
+                    <span class="city-tag" data-city="北京">🏯 北京</span>
+                    <span class="city-tag" data-city="上海">🌆 上海</span>
+                    <span class="city-tag" data-city="云南">🌸 云南</span>
+                    <span class="city-tag" data-city="浙江">🏞️ 浙江</span>
+                    <span class="city-tag" data-city="广东">🌴 广东</span>
+                    <span class="city-tag" data-city="湖北">🏔️ 湖北</span>
+                    <span class="city-tag" data-city="湖南">🌊 湖南</span>
+                    <span class="city-tag" data-city="重庆">🏙️ 重庆</span>
+                    <span class="city-tag" data-city="陕西">🏯 陕西</span>
+                    <span class="city-tag" data-city="江苏" data-empty="true">🌿 江苏</span>
+                    <span class="city-tag" data-city="山东" data-empty="true">🏜️ 山东</span>
+                    <span class="city-tag" data-city="福建" data-empty="true">🏖️ 福建</span>
+                    <span class="city-tag" data-city="新疆" data-empty="true">🏜️ 新疆</span>
+                    <span class="city-tag" data-city="西藏" data-empty="true">🏔️ 西藏</span>
+                    <span class="city-tag" data-city="海南" data-empty="true">🏝️ 海南</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 城市详情模态框 -->
+    <div class="modal-overlay" id="cityModal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-gallery">
+                <img src="" alt="旅行照片" class="modal-image" id="modalImage">
+            </div>
+            <div class="modal-date" id="modalDate"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-text" id="modalText"></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        initParticles();
+        initMapPage();
+        initMapModals();
+        initEchartsMap();
+
+        // 动画图像点击音效
+        document.querySelectorAll('.anim-img').forEach(img => {
+            img.addEventListener('click', () => {
+                const audio = img.querySelector('audio');
+                if (audio) {
+                    audio.currentTime = 0;
+                    audio.play().catch(() => {});
+                }
+            });
+        });
+    </script>
+</body>
+</html>
