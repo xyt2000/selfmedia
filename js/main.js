@@ -110,7 +110,7 @@ function initHomeAnimation() {
 
     if (!title) return;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'elastic.out(1, 0.5)' } });
 
     tl.to(title, {
         opacity: 1,
@@ -128,30 +128,82 @@ function initHomeAnimation() {
     .to(countdown, {
         opacity: 1,
         y: 0,
-        duration: 0.8
+        duration: 0.8,
+        ease: 'back.out(1.7)'
     }, '-=0.3')
     .to(sinceText, {
         opacity: 1,
         y: 0,
-        duration: 0.8
-    }, '-=0.5')
+        duration: 0.8,
+        ease: 'power2.out'
+    }, '-=0.4')
     .to(entryBtn, {
         opacity: 1,
         y: 0,
-        duration: 0.8
+        duration: 0.8,
+        ease: 'back.out(1.7)'
     }, '-=0.5');
 }
+
+// ============================================
+// 时间轴数据
+// ============================================
+const timelineData = [
+    { date: '2021年2月26日', title: '第一次相遇✨', text: '只能找到考研成绩的截图了，也许这就是无法复刻的相遇', images: [{src:'timeline_1/2021-02-26_001.jpg',caption:''}] },
+    { date: '2022年6月4日', title: '网易云聊天时代🎵', text: '那时候小宝还是乖姐姐，我还是乖乖弟弟', images: [{src:'timeline_1/2022-06-04_001.jpg',caption:''},{src:'timeline_1/2022-06-08_001.jpg',caption:''}] },
+    { date: '2022年6月30日', title: '终于爆照了📷', text: '我和小宝给对方发的第一张照片', images: [{src:'timeline_1/2022-06-30_001.jpg',caption:''},{src:'timeline_1/2022-0630_002.jpg',caption:''}] },
+    { date: '2022年12月3日', title: '初见💋', text: '第一次牵手，第一次亲吻，清早的高铁站紧紧拥抱', images: [{src:'timeline_1/2022-12-03_001.jpg',caption:''},{src:'timeline_1/2022-12-03_002.jpg',caption:''},{src:'timeline_1/2022-12-03_003.jpg',caption:''}] },
+    { date: '2023年2月17日', title: '第二次见面啦', text: '吃了茅庐川菜，看了流浪地球，小宝都睡着了😴', images: [{src:'timeline_1/2023-02-17_001.jpg',caption:''},{src:'timeline_1/2023-02-17_002.jpg',caption:''}] },
+    { date: '2023年4月10日', title: '终于去徐州找小宝啦🧸', text: '虽然去了还一直在改论文，但给小宝带了布布一二 ，还住了锦江都城', images: [{src:'timeline_1/2023-04-10_001.jpg',caption:''},{src:'timeline_1/2023-04-10_002.jpg',caption:''}] },
+    { date: '2023年5月2日', title: '第一次去红山动物园🐒', text: '在大树下休息的时候，看着小宝的侧脸，我真切体会到了什么叫人就是活几个瞬间', images: [{src:'timeline_1/2023-05-02_001.jpg',caption:''},{src:'timeline_1/2023-05-02_002.jpg',caption:''},{src:'timeline_1/2023-05-02_003.jpg',caption:''}] },
+    { date: '2023年6月12日', title: '小宝临时多住一晚✨', text: '意料之外的最美好的一晚，去打了羽毛球，玩了滑滑梯', images: [{src:'timeline_1/2023-06-12_001.jpg',caption:''}] },
+    { date: '2023年6月24日', title: '第一次陪小宝过生日啦🎂', text: '虽然只买了小小的蛋糕，在学校食堂的长椅上等了很久', images: [{src:'timeline_1/2023-06-24_001.jpg',caption:''}] },
+    { date: '2023年10月1日', title: '第一次和小宝过国庆💕', text: '最喜欢骑电动车带小宝了，还❤❤了嘻嘻', images: [{src:'timeline_1/2023-10-01_001.jpg',caption:''},{src:'timeline_1/2023-10-01_002.jpg',caption:''},{src:'timeline_1/2023-10-01_003.jpg',caption:''},{src:'timeline_1/2023-10-01_004.jpg',caption:''}] },
+    { date: '2023年12月3日', title: '一周年纪念🎉', text: '去泗洪和小宝过一周年啦，还吃了糖葫芦和小蛋糕！', images: [{src:'timeline_1/2023-12-03_001.jpg',caption:''},{src:'timeline_1/2023-12-03_002.jpg',caption:''}] },
+    { date: '2023年12月30日', title: '第一次和小宝跨年咯🎆', text: '在镇江玩了几天，回来吃牛肉吃到要吐了', images: [{src:'timeline_1/2023-12-30_001.jpg',caption:''}] },
+    { date: '2024年4月20日', title: '第一次看演唱会啦🎤', text: '小宝真厉害，抢到了凤凰传奇的演唱会！', images: [{src:'timeline_1/2024-04-20_001.jpg',caption:''}] },
+    { date: '2024年6月1日', title: '许嵩演唱会🎵', text: '无需多言，曾经小宝的抢票能力！', images: [{src:'timeline_1/2024-06-01_001.jpg',caption:''}] },
+    { date: '2024年6月15日', title: '陪小宝过的第二个生日！🎂', text: '在江阴给小宝过生日，小宝穿粉色可甜了', images: [{src:'timeline_1/2024-06-15_001.jpg',caption:''},{src:'timeline_1/2024-06-15_002.jpg',caption:''},{src:'timeline_1/2024-06-15_003.jpg',caption:''}] },
+    { date: '2024年7月5日', title: '小宝陪我的第一个生日！🎂 ', text: '小宝都花心思布置呢 ，就是晚上烤羊排太腻了，最后还上了一大盆面', images: [{src:'timeline_1/2024-07-05_001.jpg',caption:''},{src:'timeline_1/2024-07-05_002.jpg',caption:''}] },
+    { date: '2024年8月4日', title: '来徐州和小宝做戒指！💍', text: ' 带着摩手，可恶！', images: [{src:'timeline_1/2024-08-04_001.jpg',caption:''}] },
+    { date: '2024年10月1日', title: '和小宝过的第二个国庆！🍲', text: '发了几天烧！但还是很开心！在雨花客厅吃火锅！', images: [{src:'timeline_1/2024-10-01_001.jpg',caption:''}] },
+    { date: '2024年12月27日', title: '纪念小宝海底捞抓金豆😋', text: '那么多零食不记得吃了多久', images: [{src:'timeline_1/2024-12-27_001.jpg',caption:''}] },
+    { date: '2024年12月31日', title: '第二次和小宝跨年咯🎆 ', text: '做了丑丑的爱心墙', images: [{src:'timeline_1/2024-12-31_001.jpg',caption:''}] },
+    { date: '2025年5月11日', title: '小宝天天在家给我做饭呢🥩', text: '做了奇奇怪怪带血的牛肉 ~ 每天都期待小宝做的饭饭 ，带小夜宵给小宝吃！🌙', images: [{src:'timeline_1/2025-05-11_001.jpg',caption:''}] },
+    { date: '2025年6月2日', title: '第三次给小宝过生日！🎂', text: '拍了超级好看的照片，买了好多好多气球呢，好开心！', images: [{src:'timeline_1/2025-06-02_001.jpg',caption:''},{src:'timeline_1/2025-06-02_002.jpg',caption:''}] },
+    { date: '2025年6月12日', title: '小宝毕业了😜', text: '懂得都懂', images: [{src:'timeline_1/2025-06-12_001.jpg',caption:''}] },
+    { date: '2025年6月21日', title: '来看苏超啦！⚽', text: '中途还去拉了个屎，下了老大的雨了！', images: [{src:'timeline_1/2025-06-21_001.jpg',caption:''}] },
+    { date: '2025年7月5日', title: '小宝陪我的第二个生日！🎂', text: '收到了超级多礼物！超级感动！太爱小宝了！', images: [{src:'timeline_1/2025-07-05_001.jpg',caption:''},{src:'timeline_1/2025-07-05_002.jpg',caption:''}] },
+    { date: '2025年12月7日', title: '来崇州找小宝啦✈️', text: ' 超级赶的两天，和小宝去了小众宝藏公园，但还是很开心!', images: [{src:'timeline_1/2025-12-07_01.jpg',caption:''},{src:'timeline_1/2025-12-07_02.jpg',caption:''}] },
+    { date: '2026年2月11日', title: '第一次去迪士尼！🥳', text: '最最最最最最后悔的事！就是跟小宝发脾气! ', images: [{src:'timeline_1/2026-02-11_01.jpeg',caption:''}] }
+];
 
 // ============================================
 // 时间轴动画
 // ============================================
 function initTimeline() {
+    const container = document.getElementById('timeline');
     const header = document.querySelector('.timeline-header h1');
     const headerDesc = document.querySelector('.timeline-header p');
     const backBtn = document.querySelector('.back-btn');
-    const timelineItems = document.querySelectorAll('.timeline-item');
 
     if (!header) return;
+
+    // 动态渲染时间轴
+    if (container) {
+        container.innerHTML = timelineData.map((item, index) => `
+            <article class="timeline-item" data-index="${index}">
+                <div class="timeline-card">
+                    <img src="${item.images[0].src}" alt="预览图" class="preview-image">
+                    <div class="timeline-date">${item.date}</div>
+                    <h3>${item.title}</h3>
+                    <p>${item.text || '那一天，留下了美好的回忆...'}</p>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    const timelineItems = document.querySelectorAll('.timeline-item');
 
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
@@ -177,14 +229,14 @@ function initTimeline() {
             opacity: 1,
             x: 0,
             duration: 0.6,
-            delay: 0.3 + index * 0.15,
-            ease: 'power2.out'
+            delay: 0.3 + index * 0.25,
+            ease: 'back.out(1.7)'
         });
     });
 
     // 滚动视差效果
     if (window.innerWidth > 768) {
-        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+        gsap.utils.toArray('.timeline-item').forEach((item) => {
             gsap.to(item, {
                 y: -20,
                 ease: 'none',
@@ -197,6 +249,14 @@ function initTimeline() {
             });
         });
     }
+
+    // 点击打开模态框
+    timelineItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const index = parseInt(item.dataset.index);
+            openTimelineModal(index);
+        });
+    });
 }
 
 // ============================================
@@ -272,6 +332,7 @@ function closeModal(modal) {
         onComplete: () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+            gsap.set(modal, { clearProps: 'opacity' });
         }
     });
 }
@@ -378,6 +439,11 @@ let chart = null;
 let currentLevel = 'china'; // 'china' or 'province'
 let currentProvince = null;
 
+// 规范化城市名称（去除 ECharts 地图后缀）
+function normalizeCityName(name) {
+    return name.replace(/(藏族自治州|回族自治州|蒙古族自治州|彝族自治州|傣族自治州|壮族自治州|布依族自治州|侗族自治州|瑶族自治州|白族自治州|哈尼族自治州|哈萨克自治州|柯尔克孜自治州|朝鲜族自治州|自治州|自治县|地区|林区|特区|新区|矿区|市辖区|市|县|区|旗|盟)$/, '');
+}
+
 function initEchartsMap() {
     const mapEl = document.getElementById('chinaMap');
     if (!mapEl) return;
@@ -447,7 +513,7 @@ function loadChinaMap() {
         }]
     };
 
-    chart.setOption(option);
+    chart.setOption(option, true);
 
     // 点击省份 - 进入地级市或显示详情
     chart.off('click');
@@ -482,76 +548,17 @@ function loadProvinceMap(provinceName) {
     const backBtn = document.getElementById('backToChina');
     if (backBtn) backBtn.classList.add('visible');
 
+    // 如果地图已加载，直接渲染
+    if (echarts.getMap(provinceName)) {
+        renderProvinceMap(provinceName);
+        return;
+    }
+
     // 动态加载省级地图
     const script = document.createElement('script');
     script.src = `https://cdn.jsdelivr.net/npm/echarts/map/js/province/${mapFile}.js`;
     script.onload = function() {
-        // 获取该省份去过的地方
-        const visitedCities = Object.keys(cityData)
-            .filter(key => key.includes(provinceName + '-'))
-            .map(key => key.replace(provinceName + '-', ''));
-
-        const option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: function(params) {
-                    const fullName = provinceName + '-' + params.name;
-                    if (cityData[fullName]) {
-                        return params.name + '<br/>点击查看详情';
-                    }
-                    return params.name;
-                }
-            },
-            series: [{
-                name: provinceName,
-                type: 'map',
-                map: provinceName,
-                roam: true,
-                zoom: 1.5,
-                label: {
-                    show: true,
-                    fontSize: 10
-                },
-                itemStyle: {
-                    borderColor: '#fff',
-                    borderWidth: 1
-                },
-                emphasis: {
-                    label: {
-                        show: true,
-                        color: '#fff',
-                        fontSize: 12
-                    },
-                    itemStyle: {
-                        areaColor: '#FF69B4'
-                    }
-                },
-                select: {
-                    disabled: true
-                },
-                data: visitedCities.map(name => ({
-                    name: name,
-                    itemStyle: {
-                        areaColor: '#DB7093'
-                    }
-                }))
-            }]
-        };
-
-        chart.setOption(option);
-
-        // 点击地级市
-        chart.off('click');
-        chart.on('click', function(params) {
-            if (!params.name) return;
-
-            const fullName = provinceName + '-' + params.name;
-            if (cityData[fullName]) {
-                showCityDetail(fullName);
-            } else {
-                alert('这个城市还没有添加旅行记录哦～');
-            }
-        });
+        renderProvinceMap(provinceName);
     };
     script.onerror = function() {
         alert('加载地图失败，请稍后重试');
@@ -559,163 +566,250 @@ function loadProvinceMap(provinceName) {
     document.body.appendChild(script);
 }
 
-// 城市数据（修改这里添加旅行记录）
-// 格式：'省份' 或 '省份-城市'
-const cityData = {
-    // 省级记录
-    '四川': {
-        date: '2023年7月',
-        title: '🏔️ 四川之旅',
-        text: '一起去了成都，吃了火锅，看了熊猫基地。那几天的时光真的很美好，每天都在一起探索这座城市。',
-        image: 'https://picsum.photos/700/400?random=10'
-    },
-    '北京': {
-        date: '2023年10月1日',
-        title: '🏯 北京之旅',
-        text: '国庆节一起去北京，看了升旗仪式，爬了长城。故宫的红墙绿瓦真的很美，你穿汉服的样子让我心动不已。',
-        image: 'https://picsum.photos/700/400?random=11'
-    },
-    '上海': {
-        date: '2024年1月',
-        title: '🌆 上海之旅',
-        text: '外滩的夜景真美，我们手牵手走在江边。虽然很冷，但你靠在我身边的温度现在还记得。',
-        image: 'https://picsum.photos/700/400?random=12'
-    },
-    '云南': {
-        date: '2024年3月',
-        title: '🌸 云南之旅',
-        text: '丽江古城好美，我们一起骑自行车环洱海，看日出日落。那里的星空是我见过最美的。',
-        image: 'https://picsum.photos/700/400?random=13'
-    },
-    '浙江': {
-        date: '2024年清明',
-        title: '🏞️ 浙江之旅',
-        text: '西湖边散步，断桥残雪，你说是我们爱情的象征。雷峰塔下的誓言我永远不会忘记。',
-        image: 'https://picsum.photos/700/400?random=14'
-    },
-    '广东': {
-        date: '2024年6月',
-        title: '🌴 广东之旅',
-        text: '广州早茶太好吃了！深圳的霓虹灯真漂亮，我们一起逛了世界之窗。',
-        image: 'https://picsum.photos/700/400?random=15'
-    },
-    '湖北': {
-        date: '2023年9月',
-        title: '🏔️ 湖北之旅',
-        text: '武汉的热干面真的很香，黄鹤楼很壮观。长江边的晚风吹得很舒服。',
-        image: 'https://picsum.photos/700/400?random=16'
-    },
-    '湖南': {
-        date: '2024年劳动节',
-        title: '🌊 湖南之旅',
-        text: '张家界的天门山太美了！凤凰古城夜景很浪漫，我们一起看了篝火晚会。',
-        image: 'https://picsum.photos/700/400?random=17'
-    },
-    '重庆': {
-        date: '2024年2月',
-        title: '🏙️ 重庆之旅',
-        text: '洪崖洞夜景太美了！火锅辣得很过瘾，轻轨穿楼而过真的很神奇。',
-        image: 'https://picsum.photos/700/400?random=18'
-    },
-    '陕西': {
-        date: '2023年11月',
-        title: '🏯 陕西之旅',
-        text: '西安的城墙好长，兵马俑很震撼。回民街的小吃吃到停不下来。',
-        image: 'https://picsum.photos/700/400?random=19'
-    },
+function renderProvinceMap(provinceName) {
+    // 获取该省份去过的地方
+    const visitedCities = Object.keys(cityData)
+        .filter(key => key.startsWith(provinceName + '-'))
+        .map(key => key.replace(provinceName + '-', ''));
 
-    // 地级市记录（格式：省份-城市）
-    '四川-成都': {
-        date: '2023年7月15日',
-        title: '🍲 成都',
-        text: '宽窄巷子、锦里、武侯祠...火锅、串串、兔头，吃货的天堂！',
-        image: 'https://picsum.photos/700/400?random=20'
-    },
-    '四川-绵阳': {
-        date: '2023年7月18日',
-        title: '🏔️ 绵阳',
-        text: '去了药王山，空气特别好。还吃了绵阳的米粉，很香！',
-        image: 'https://picsum.photos/700/400?random=21'
-    },
-    '北京-北京': {
-        date: '2023年10月1日',
-        title: '🏯 北京',
-        text: '天安门、故宫、长城、颐和园...满满的首都记忆。',
-        image: 'https://picsum.photos/700/400?random=22'
-    },
+    // 通过 ECharts 获取地图中实际使用的城市名称，建立规范化映射
+    const mapData = echarts.getMap(provinceName);
+    const exactNames = mapData && mapData.geoJson ? mapData.geoJson.features.map(f => f.properties.name) : [];
+    const nameMap = {};
+    exactNames.forEach(exact => {
+        nameMap[normalizeCityName(exact)] = exact;
+    });
+
+    const option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+                const normalizedCity = normalizeCityName(params.name);
+                const fullName = provinceName + '-' + normalizedCity;
+                if (cityData[fullName]) {
+                    return params.name + '<br/>点击查看详情';
+                }
+                return params.name;
+            }
+        },
+        series: [{
+            name: provinceName,
+            type: 'map',
+            map: provinceName,
+            roam: true,
+            zoom: 1.5,
+            label: {
+                show: true,
+                fontSize: 10
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 1
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    color: '#fff',
+                    fontSize: 12
+                },
+                itemStyle: {
+                    areaColor: '#FF69B4'
+                }
+            },
+            select: {
+                disabled: true
+            },
+            data: visitedCities.map(name => {
+                const exactName = nameMap[name] || name;
+                return {
+                    name: exactName,
+                    itemStyle: {
+                        areaColor: '#DB7093'
+                    }
+                };
+            })
+        }]
+    };
+
+    chart.setOption(option, true);
+
+    // 点击地级市
+    chart.off('click');
+    chart.on('click', function(params) {
+        if (!params.name) return;
+
+        const normalizedCity = normalizeCityName(params.name);
+        const fullName = provinceName + '-' + normalizedCity;
+        if (cityData[fullName]) {
+            showCityDetail(fullName);
+        } else {
+            alert('这个城市还没有添加旅行记录哦～');
+        }
+    });
+}
+
+// 城市数据（修改这里添加旅行记录）
+// 格式：'省份-城市'，图片放在 travel_1/ 目录，命名：城市名_01.jpg
+const cityData = {
     '上海-上海': {
-        date: '2024年1月10日',
-        title: '🌆 上海',
-        text: '外滩、豫园、田子坊、上海塔...国际化大都市的浪漫。',
-        image: 'https://picsum.photos/700/400?random=23'
+        date: '2024年1月',
+        title: '上海',
+        text: '小宝拍的我的背影，历历在目。。。',
+        images: [
+            { src: 'travel_1/上海_01.jpg', caption: '' },
+            { src: 'travel_1/上海_02.jpg', caption: '' },
+            { src: 'travel_1/上海_03.jpg', caption: '' },
+            { src: 'travel_1/上海_04.jpg', caption: '' },
+            { src: 'travel_1/上海_05.jpg', caption: '' },
+            { src: 'travel_1/上海_06.jpg', caption: '' }
+        ]
     },
-    '云南-丽江': {
-        date: '2024年3月5日',
-        title: '🌸 丽江',
-        text: '古城四方街、木府、黑龙潭。夜晚的酒吧街很热闹。',
-        image: 'https://picsum.photos/700/400?random=24'
+    '江苏-南京': {
+        date: '2024年春',
+        title: '南京',
+        text: '我们最爱的南京！待的最久的地方！',
+        images: [
+            { src: 'travel_1/南京_01.jpg', caption: '' },
+            { src: 'travel_1/南京_01 (2).jpg', caption: '' },
+            { src: 'travel_1/南京_02.jpg', caption: '' },
+            { src: 'travel_1/南京_03.jpg', caption: '' }
+        ]
     },
-    '云南-大理': {
-        date: '2024年3月8日',
-        title: '🏔️ 大理',
-        text: '洱海骑行、苍山索道、双廊古镇。日出美得让人窒息。',
-        image: 'https://picsum.photos/700/400?random=25'
+    '安徽-合肥': {
+        date: '2023年秋',
+        title: '合肥',
+        text: '和小宝看了我的母校！还有好喝的卡旺卡！',
+        images: [
+            { src: 'travel_1/合肥_01.jpg', caption: '' },
+            { src: 'travel_1/合肥_02.jpg', caption: '' }
+        ]
+    },
+    '浙江-嘉兴': {
+        date: '2023年夏',
+        title: '嘉兴',
+        text: '啥也没有的海宁。',
+        images: [
+            { src: 'travel_1/嘉兴_01.jpg', caption: '' },
+            { src: 'travel_1/嘉兴_02.jpg', caption: '' }
+        ]
+    },
+    '江苏-宿迁': {
+        date: '2023年夏',
+        title: '宿迁',
+        text: '早餐还不错',
+        images: [
+            { src: 'travel_1/宿迁_01.jpg', caption: '' }
+        ]
+    },
+    '江苏-常州': {
+        date: '2023年秋',
+        title: '常州',
+        text: '划船困到要睡着了',
+        images: [
+            { src: 'travel_1/常州_01.jpg', caption: '' },
+            { src: 'travel_1/常州_02.jpg', caption: '' }
+        ]
+    },
+    '江苏-徐州': {
+        date: '2023年冬',
+        title: '徐州',
+        text: '仅次于南京的历史地位',
+        images: [
+            { src: 'travel_1/徐州_01.jpg', caption: '' },
+            { src: 'travel_1/徐州_02.jpg', caption: '' }
+        ]
+    },
+    '四川-成都': {
+        date: '2023年夏',
+        title: '成都',
+        text: '在汉堡王的小宝都可怜的很呢',
+        images: [
+            { src: 'travel_1/成都_01.jpg', caption: '' },
+            { src: 'travel_1/成都_02.jpg', caption: '' }
+        ]
+    },
+    '江苏-扬州': {
+        date: '2023年春',
+        title: '扬州',
+        text: '第一次和小宝旅游，小宝也太美了！',
+        images: [
+            { src: 'travel_1/扬州_01.jpg', caption: '' },
+            { src: 'travel_1/扬州_02.jpg', caption: '' },
+            { src: 'travel_1/扬州_03.jpg', caption: '' }
+        ]
+    },
+    '江苏-无锡': {
+        date: '2023年秋',
+        title: '无锡',
+        text: '这江阴最好玩的也就是八佰伴了',
+        images: [
+            { src: 'travel_1/无锡_01.jpg', caption: '' },
+            { src: 'travel_1/无锡_02.jpg', caption: '' }
+        ]
     },
     '浙江-杭州': {
-        date: '2024年4月4日',
-        title: '🏞️ 杭州',
-        text: '西湖十景走了一遍，断桥残雪真的很美。',
-        image: 'https://picsum.photos/700/400?random=26'
+        date: '2024年春',
+        title: '杭州',
+        text: '西湖，无需多言，想要再去几次！',
+        images: [
+            { src: 'travel_1/杭州_01.jpg', caption: '' },
+            { src: 'travel_1/杭州_02.jpg', caption: '' }
+        ]
     },
-    '浙江-宁波': {
-        date: '2024年4月6日',
-        title: '🌊 宁波',
-        text: '天一广场、老外滩，吃了正宗的宁波汤圆。',
-        image: 'https://picsum.photos/700/400?random=27'
+    '江苏-淮安': {
+        date: '2023年夏',
+        title: '淮安',
+        text: '去了超级远的洪泽湖！还度过了最快乐的一天！',
+        images: [
+            { src: 'travel_1/淮安_01.jpg', caption: '' },
+            { src: 'travel_1/淮安_02.jpg', caption: '' },
+            { src: 'travel_1/淮安_03.jpg', caption: '' },
+            { src: 'travel_1/淮安_04.jpg', caption: '' }
+        ]
     },
-    '广东-广州': {
-        date: '2024年6月1日',
-        title: '🌴 广州',
-        text: '早茶文化太棒了！小蛮腰的夜景绝了。',
-        image: 'https://picsum.photos/700/400?random=28'
+    '四川-甘孜': {
+        date: '2023年秋',
+        title: '甘孜',
+        text: '九寨沟还是太权威了，就是去一下得花三天时间',
+        images: [
+            { src: 'travel_1/甘孜_01.jpg', caption: '' },
+            { src: 'travel_1/甘孜_02.jpg', caption: '' }
+        ]
     },
-    '广东-深圳': {
-        date: '2024年6月3日',
-        title: '🏙️ 深圳',
-        text: '世界之窗、欢乐谷，年轻的城市充满活力。',
-        image: 'https://picsum.photos/700/400?random=29'
+    '江苏-苏州': {
+        date: '2023年春',
+        title: '苏州',
+        text: '这常熟感觉也一般般，确实人少',
+        images: [
+            { src: 'travel_1/苏州_01.jpg', caption: '' },
+            { src: 'travel_1/苏州_02.jpg', caption: '' }
+        ]
     },
-    '湖北-武汉': {
-        date: '2023年9月15日',
-        title: '🏔️ 武汉',
-        text: '黄鹤楼、户部巷、武汉大学。热干面真的很香！',
-        image: 'https://picsum.photos/700/400?random=30'
+    '江苏-连云港': {
+        date: '2023年夏',
+        title: '连云港',
+        text: '超级冷小宝还不多穿点!但是看小宝吃皮皮虾和梭子蟹还是很满足',
+        images: [
+            { src: 'travel_1/连云港_01.jpg', caption: '' },
+            { src: 'travel_1/连云港_02.jpg', caption: '' },
+            { src: 'travel_1/连云港_03.jpg', caption: '' },
+            { src: 'travel_1/连云港_04.jpg', caption: '' }
+        ]
     },
-    '湖南-长沙': {
-        date: '2024年5月1日',
-        title: '🌊 长沙',
-        text: '橘子洲头、岳麓山、太平街。茶颜悦色太好喝了！',
-        image: 'https://picsum.photos/700/400?random=31'
-    },
-    '湖南-张家界': {
-        date: '2024年5月3日',
-        title: '🏔️ 张家界',
-        text: '天门山玻璃栈道太刺激了！大峡谷的玻璃桥很震撼。',
-        image: 'https://picsum.photos/700/400?random=32'
-    },
-    '重庆-重庆': {
-        date: '2024年2月14日',
-        title: '🏙️ 重庆',
-        text: '情人节去的！洪崖洞、解放碑、长江索道，浪漫满分。',
-        image: 'https://picsum.photos/700/400?random=33'
-    },
-    '陕西-西安': {
-        date: '2023年11月10日',
-        title: '🏯 西安',
-        text: '城墙骑行、兵马俑、华清池。历史感满满的城市。',
-        image: 'https://picsum.photos/700/400?random=34'
+    '江苏-镇江': {
+        date: '2023年秋',
+        title: '镇江',
+        text: '金山寺、北固山、西津渡、感觉不如年会不能停',
+        images: [
+            { src: 'travel_1/镇江_01.jpg', caption: '' },
+            { src: 'travel_1/镇江_02.jpg', caption: '' }
+        ]
     }
 };
+
+// 画廊状态
+let currentGalleryImages = [];
+let currentGalleryIndex = 0;
 
 function showCityDetail(city) {
     const data = cityData[city];
@@ -724,13 +818,67 @@ function showCityDetail(city) {
         return;
     }
 
-    document.getElementById('modalImage').src = data.image;
+    // 支持新版 images 数组和旧版 image 字符串
+    currentGalleryImages = data.images || (data.image ? [{ src: data.image, caption: '' }] : []);
+    currentGalleryIndex = 0;
+
     document.getElementById('modalDate').textContent = data.date;
     document.getElementById('modalTitle').textContent = data.title;
     document.getElementById('modalText').textContent = data.text;
 
+    renderGallery();
+
     const modal = document.getElementById('cityModal');
     openModal(modal);
+}
+
+function renderGallery() {
+    const imgEl = document.getElementById('modalImage');
+    const captionEl = document.getElementById('galleryCaption');
+    const dotsEl = document.getElementById('galleryDots');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+
+    if (currentGalleryImages.length === 0) {
+        imgEl.src = '';
+        if (captionEl) captionEl.textContent = '';
+        if (dotsEl) dotsEl.innerHTML = '';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+    }
+
+    const item = currentGalleryImages[currentGalleryIndex];
+    imgEl.src = item.src;
+    if (captionEl) captionEl.textContent = item.caption || '';
+
+    // 渲染指示点
+    if (dotsEl) {
+        dotsEl.innerHTML = currentGalleryImages.map((_, i) =>
+            `<span class="gallery-dot ${i === currentGalleryIndex ? 'active' : ''}" data-index="${i}"></span>`
+        ).join('');
+        dotsEl.querySelectorAll('.gallery-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentGalleryIndex = parseInt(dot.dataset.index);
+                renderGallery();
+            });
+        });
+    }
+
+    // 显示/隐藏切换按钮
+    const showNav = currentGalleryImages.length > 1;
+    if (prevBtn) prevBtn.style.display = showNav ? 'flex' : 'none';
+    if (nextBtn) nextBtn.style.display = showNav ? 'flex' : 'none';
+}
+
+function nextGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryImages.length;
+    renderGallery();
+}
+
+function prevGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+    renderGallery();
 }
 
 function initMapModals() {
@@ -743,6 +891,98 @@ function initMapModals() {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal(modal);
     });
+
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevGalleryImage(); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextGalleryImage(); });
+}
+
+// ============================================
+// 时间轴模态框与画廊
+// ============================================
+let timelineGalleryImages = [];
+let timelineGalleryIndex = 0;
+
+function openTimelineModal(index) {
+    const data = timelineData[index];
+    if (!data) return;
+
+    timelineGalleryImages = data.images || [];
+    timelineGalleryIndex = 0;
+
+    document.getElementById('timelineModalDate').textContent = data.date;
+    document.getElementById('timelineModalTitle').textContent = data.title;
+    document.getElementById('timelineModalText').textContent = data.text || '那一天，留下了美好的回忆...';
+
+    renderTimelineGallery();
+
+    const modal = document.getElementById('timelineModal');
+    openModal(modal);
+}
+
+function renderTimelineGallery() {
+    const imgEl = document.getElementById('timelineModalImage');
+    const captionEl = document.getElementById('timelineGalleryCaption');
+    const dotsEl = document.getElementById('timelineGalleryDots');
+    const prevBtn = document.getElementById('timelineGalleryPrev');
+    const nextBtn = document.getElementById('timelineGalleryNext');
+
+    if (timelineGalleryImages.length === 0) {
+        imgEl.src = '';
+        if (captionEl) captionEl.textContent = '';
+        if (dotsEl) dotsEl.innerHTML = '';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+    }
+
+    const item = timelineGalleryImages[timelineGalleryIndex];
+    imgEl.src = item.src;
+    if (captionEl) captionEl.textContent = item.caption || '';
+
+    if (dotsEl) {
+        dotsEl.innerHTML = timelineGalleryImages.map((_, i) =>
+            `<span class="gallery-dot ${i === timelineGalleryIndex ? 'active' : ''}" data-index="${i}"></span>`
+        ).join('');
+        dotsEl.querySelectorAll('.gallery-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                timelineGalleryIndex = parseInt(dot.dataset.index);
+                renderTimelineGallery();
+            });
+        });
+    }
+
+    const showNav = timelineGalleryImages.length > 1;
+    if (prevBtn) prevBtn.style.display = showNav ? 'flex' : 'none';
+    if (nextBtn) nextBtn.style.display = showNav ? 'flex' : 'none';
+}
+
+function nextTimelineGalleryImage() {
+    timelineGalleryIndex = (timelineGalleryIndex + 1) % timelineGalleryImages.length;
+    renderTimelineGallery();
+}
+
+function prevTimelineGalleryImage() {
+    timelineGalleryIndex = (timelineGalleryIndex - 1 + timelineGalleryImages.length) % timelineGalleryImages.length;
+    renderTimelineGallery();
+}
+
+function initTimelineModals() {
+    const modal = document.getElementById('timelineModal');
+    if (!modal) return;
+
+    const closeBtn = modal.querySelector('.modal-close');
+    closeBtn.addEventListener('click', () => closeModal(modal));
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+    });
+
+    const prevBtn = document.getElementById('timelineGalleryPrev');
+    const nextBtn = document.getElementById('timelineGalleryNext');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevTimelineGalleryImage(); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextTimelineGalleryImage(); });
 }
 
 // ============================================

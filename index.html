@@ -11,25 +11,14 @@
     <!-- 粒子背景 -->
     <div class="particles" id="particles"></div>
 
-    <!-- 动画图像 -->
-    <div class="floating-animations">
-        <div class="anim-img anim-left" id="anim1">
-            <img src="bubu.jpg" alt="动画1">
-            <audio id="sound1" src="bubu.mp3"></audio>
-        </div>
-        <div class="anim-img anim-right" id="anim2">
-            <img src="yier.jpg" alt="动画2">
-            <audio id="sound2" src="yier.mp3"></audio>
-        </div>
-    </div>
     <!-- 主页面容器 -->
     <main class="home">
         <div class="home-content">
             <!-- 标题 -->
             <h1 class="title">
-                <span class="title-name">你的名字</span>
-                <span class="title-heart">&</span>
-                <span class="title-name">你的名字</span>
+                <span class="title-name">韬韬</span>
+                <span class="title-name">&</span>
+                <span class="title-name">才玉</span>
             </h1>
 
             <!-- 纪念日倒计时 -->
@@ -72,6 +61,18 @@
         </div>
     </main>
 
+    <!-- 动画图像 -->
+    <div class="floating-animations">
+        <div class="anim-img anim-left" id="anim1">
+            <img src="bubu.jpg" alt="动画1">
+            <audio id="sound1" src="bubu.mp3"></audio>
+        </div>
+        <div class="anim-img anim-right" id="anim2">
+            <img src="yier.jpg" alt="动画2">
+            <audio id="sound2" src="yier.mp3"></audio>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="js/main.js"></script>
     <script>
@@ -84,13 +85,16 @@
         // 初始化粒子
         initParticles();
 
+        // 初始化主页动画
+        initHomeAnimation();
+
         // 动画图像点击音效
-        document.querySelectorAll('.anim-img').forEach(img => {
-            img.addEventListener('click', () => {
-                const audio = img.querySelector('audio');
+        document.querySelectorAll('.anim-img').forEach(elem => {
+            elem.addEventListener('click', () => {
+                const audio = elem.querySelector('audio');
                 if (audio) {
                     audio.currentTime = 0;
-                    audio.play().catch(() => {});
+                    audio.play();
                 }
             });
         });

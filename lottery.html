@@ -31,7 +31,7 @@
     <!-- 抽奖页面 -->
     <main class="lottery-page">
         <header class="lottery-header">
-            <h1>🎰 抽奖转盘</h1>
+            <h1><span aria-hidden="true">🎰</span> 抽奖转盘</h1>
             <p>转动转盘，看看今天会收获什么惊喜！</p>
             <div class="chance-counter">
                 剩余抽奖次数：<span id="chanceCount">5</span> 次
@@ -64,24 +64,9 @@
             </button>
         </div>
 
-        <!-- 奖品列表（可自定义） -->
-        <div class="prize-config">
-            <h3>🎁 奖品设置（点击编辑）</h3>
-            <div class="prize-list">
-                <div class="prize-item" contenteditable="true">💋 亲一个</div>
-                <div class="prize-item" contenteditable="true">🤗 抱一个</div>
-                <div class="prize-item" contenteditable="true">🧹 家务券</div>
-                <div class="prize-item" contenteditable="true">🍽️ 请吃晚餐</div>
-                <div class="prize-item" contenteditable="true">💰 V我50</div>
-                <div class="prize-item" contenteditable="true">🔄 再来一次</div>
-                <div class="prize-item" contenteditable="true">🧋 奶茶券</div>
-                <div class="prize-item" contenteditable="true">🍰 甜品券</div>
-            </div>
-        </div>
-
         <!-- 历史记录 -->
         <div class="lottery-history">
-            <h3>📝 抽奖记录</h3>
+            <h3><span aria-hidden="true">📝</span> 抽奖记录</h3>
             <ul id="historyList">
                 <li class="history-empty">还没有抽奖记录</li>
             </ul>
